@@ -18,5 +18,37 @@
     <ClCompile Include="AntrlCalc.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="calc\LabeledExprBaseVisitor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="calc\LabeledExprLexer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="calc\LabeledExprParser.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="calc\LabeledExprVisitor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="calc\LabeledExpr.interp" />
+    <None Include="calc\LabeledExpr.tokens" />
+    <None Include="calc\LabeledExprLexer.interp" />
+    <None Include="calc\LabeledExprLexer.tokens" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="calc\LabeledExprBaseVisitor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="calc\LabeledExprLexer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="calc\LabeledExprParser.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="calc\LabeledExprVisitor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

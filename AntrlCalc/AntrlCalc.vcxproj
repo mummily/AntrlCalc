@@ -116,10 +116,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\Include\antlr4-runtime;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>.\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>antlr4-runtime.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -140,6 +143,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AntrlCalc.cpp" />
+    <ClCompile Include="calc\LabeledExprBaseVisitor.cpp" />
+    <ClCompile Include="calc\LabeledExprLexer.cpp" />
+    <ClCompile Include="calc\LabeledExprParser.cpp" />
+    <ClCompile Include="calc\LabeledExprVisitor.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="calc\LabeledExpr.interp" />
+    <None Include="calc\LabeledExpr.tokens" />
+    <None Include="calc\LabeledExprLexer.interp" />
+    <None Include="calc\LabeledExprLexer.tokens" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="calc\LabeledExprBaseVisitor.h" />
+    <ClInclude Include="calc\LabeledExprLexer.h" />
+    <ClInclude Include="calc\LabeledExprParser.h" />
+    <ClInclude Include="calc\LabeledExprVisitor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
