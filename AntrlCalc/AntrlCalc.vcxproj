@@ -147,6 +147,7 @@
     <ClCompile Include="calc\LabeledExprLexer.cpp" />
     <ClCompile Include="calc\LabeledExprParser.cpp" />
     <ClCompile Include="calc\LabeledExprVisitor.cpp" />
+    <ClCompile Include="EvalVisitor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="calc\LabeledExpr.interp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="calc\LabeledExprLexer.h" />
     <ClInclude Include="calc\LabeledExprParser.h" />
     <ClInclude Include="calc\LabeledExprVisitor.h" />
+    <ClInclude Include="EvalVisitor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

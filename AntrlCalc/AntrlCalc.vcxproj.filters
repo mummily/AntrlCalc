@@ -30,6 +30,9 @@
     <ClCompile Include="calc\LabeledExprVisitor.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="EvalVisitor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="calc\LabeledExpr.interp" />
@@ -48,6 +51,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="calc\LabeledExprVisitor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="EvalVisitor.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

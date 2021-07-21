@@ -2,19 +2,62 @@
 //
 
 #include <iostream>
+#include <string>
+#include "ANTLRInputStream.h"
+#include "calc/LabeledExprLexer.h"
+#include "calc/LabeledExprParser.h"
+#include "EvalVisitor.h"
+
+using namespace std;
+using namespace antlr4;
+using namespace antlr4::tree;
+using namespace calc;
+
+char* read(const char* path) {
+    FILE* fp;
+#pragma warning(push)
+#pragma warning(disable: 4996)
+    if ((fp = fopen(path, "r")) == NULL) {
+#pragma warning(pop)
+        cout << "文件打开失败！" << endl;
+    }
+
+    fseek(fp, 0L, SEEK_END);
+    int len = ftell(fp);
+    rewind(fp);
+
+    static char content[100];
+    fread(content, 1, len, fp);
+    fclose(fp);
+
+    return content;
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    string inputFile = ".\\x64\\Debug\\data.txt"; // .\\data.txt
+    char* data = read(inputFile.c_str());
+
+    string strData = data;
+    ANTLRInputStream input(strData);
+    LabeledExprLexer lexer(&input);
+
+    // std::vector<std::unique_ptr<Token>> vt_tks;
+    // vt_tks = lexer.getAllTokens();
+    // 
+    // for (auto it = vt_tks.begin(); it != vt_tks.end(); ++it)
+    // {
+    //     string strText = (*it)->getText();
+    //     size_t stType = (*it)->getType();
+    //     cout << strText << "\t" << stType << endl;
+    // }
+
+    CommonTokenStream tokens(&lexer);
+    LabeledExprParser parser(&tokens);
+
+    ParseTree* tree = parser.prog();
+    // string strTree = tree->getText();
+    // string strTree2 = tree->toStringTree(&parser);
+    EvalVisitor eval;
+    eval.visit(tree);
 }
-
-// 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
-// 调试程序: F5 或调试 >“开始调试”菜单
-
-// 入门使用技巧: 
-//   1. 使用解决方案资源管理器窗口添加/管理文件
-//   2. 使用团队资源管理器窗口连接到源代码管理
-//   3. 使用输出窗口查看生成输出和其他消息
-//   4. 使用错误列表窗口查看错误
-//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
-//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件
